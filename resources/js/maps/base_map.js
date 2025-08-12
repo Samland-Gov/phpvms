@@ -15,8 +15,8 @@ export default (_opts) => {
     {
       render_elem: "map",
       center: [29.98139, -95.33374],
-      zoom: world.zoom.maxOut,
-      maxZoom: world.zoom.maxOut,
+      zoom: Samland1.zoom.maxOut,
+      maxZoom: Samland1.zoom.maxOut,
       layers: [],
       set_marker: false,
       crs: L.CRS.Simple,
