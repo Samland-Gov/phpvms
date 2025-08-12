@@ -9,6 +9,7 @@ use App\Models\Airport;
 use App\Models\Enums\UserState;
 use App\Models\User;
 use App\Support\Timezonelist;
+use App\Support\Countries;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,7 +19,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
-use League\ISO3166\ISO3166;
 
 class UserResource extends Resource
 {
@@ -75,7 +75,7 @@ class UserResource extends Resource
                             ->schema([
                                 Forms\Components\Select::make('country')
                                     ->required()
-                                    ->options(collect((new ISO3166())->all())->mapWithKeys(fn ($item, $key) => [strtolower($item['alpha2']) => str_replace('&bnsp;', ' ', $item['name'])]))
+                                    ->options(collect(Countries::getSelectList())->mapWithKeys(fn ($item, $key) => [$item['alpha2'] => str_replace('&bnsp;', ' ', $item['name'])]))
                                     ->searchable()
                                     ->native(false),
 

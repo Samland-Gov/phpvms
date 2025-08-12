@@ -7,6 +7,7 @@ use App\Filament\Resources\AirlineResource\Pages;
 use App\Models\Airline;
 use App\Models\File;
 use App\Services\FileService;
+use App\Support\Countries;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +16,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use League\ISO3166\ISO3166;
 
 class AirlineResource extends Resource
 {
@@ -59,7 +59,7 @@ class AirlineResource extends Resource
                         ->string(),
 
                     Forms\Components\Select::make('country')
-                        ->options(collect((new ISO3166())->all())->mapWithKeys(fn ($item, $key) => [strtolower($item['alpha2']) => str_replace('&bnsp;', ' ', $item['name'])]))
+                        ->options(collect(Countries::getSelectList())->mapWithKeys(fn ($item, $key) => [$item['alpha2'] => str_replace('&bnsp;', ' ', $item['name'])]))
                         ->searchable()
                         ->native(false),
 
