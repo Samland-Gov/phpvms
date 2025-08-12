@@ -16,9 +16,13 @@ class Countries
      */
     public static function getSelectList()
     {
-        return collect((new ISO3166())->all())
+        $countries = collect((new ISO3166())->all())
             ->mapWithKeys(static function ($item, $key) {
                 return [strtolower($item['alpha2']) => $item['name']];
             });
+
+        return $countries->merge([
+            'zl_' => 'Samland',
+        ]);
     }
 }
