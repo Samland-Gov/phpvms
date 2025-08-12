@@ -1,0 +1,1 @@
+import{s as o,S as s}from"./common-dhc8Q1hd.js";import{a as r,r as a}from"./request-hXTb2f-2.js";import{c as i}from"./request-BQWid5Bw.js";import"./rivets-BdvuP89N.js";o();window.axios=r;window.phpvms={config:i,request:a,Storage:s};

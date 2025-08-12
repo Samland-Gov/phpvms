@@ -1,0 +1,1 @@
+const e=document.head.querySelector('meta[name="base-url"]'),t=document.head.querySelector('meta[name="csrf-token"]'),n=document.head.querySelector('meta[name="api-key"]');n.content,e.content,t.content;

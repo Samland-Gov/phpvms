@@ -8,6 +8,7 @@
 import leaflet from "leaflet";
 import draw_base_map from "./base_map";
 import { addWMSLayer } from "./helpers";
+import { Samland1 } from "../minecraft";
 
 /**
  * Render a map with the airspace, etc around a given set of coords
@@ -36,7 +37,7 @@ export default (_opts) => {
   );
 
   const map = draw_base_map(opts);
-  const coords = [opts.lat, opts.lon];
+  const coords = Samland1.toLatLng([opts.lat, opts.lon]);
   console.log("Applying coords", coords);
 
   map.setView(coords, opts.zoom);
