@@ -89,15 +89,11 @@ class AirportResource extends Resource
                         Forms\Components\TextInput::make('lat')
                             ->label('Latitude')
                             ->required()
-                            ->minValue(-90)
-                            ->maxValue(90)
                             ->numeric(),
 
                         Forms\Components\TextInput::make('lon')
                             ->label('Longitude')
                             ->required()
-                            ->minValue(-180)
-                            ->maxValue(180)
                             ->numeric(),
 
                         Forms\Components\TextInput::make('elevation')
