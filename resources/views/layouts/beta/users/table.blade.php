@@ -29,7 +29,7 @@
       <td align="center">
         @if(filled($user->country))
           <span class="fi fi-{{ $user->country }}"
-                title="{{ $country[($user->country)]['name'] }}"></span>
+                title="{{ $country[($user->country)] }}"></span>
         @endif
       </td>
       <td class="text-center">{{ $user->airline->icao }}</td>
