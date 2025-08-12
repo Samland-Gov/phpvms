@@ -22,7 +22,7 @@ class Countries
             });
 
         return $countries->merge([
-            'zl_' => 'Samland',
+            'ZL' => 'Samland',
         ]);
     }
 }
