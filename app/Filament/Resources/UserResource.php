@@ -75,7 +75,7 @@ class UserResource extends Resource
                             ->schema([
                                 Forms\Components\Select::make('country')
                                     ->required()
-                                    ->options(collect(Countries::getSelectList())->mapWithKeys(fn ($item, $key) => [$item['alpha2'] => str_replace('&bnsp;', ' ', $item['name'])]))
+                                    ->options(collect(Countries::getSelectList())->mapWithKeys(fn ($name, $alpha2) => [$alpha2 => str_replace('&nbsp;', ' ', $name)]))
                                     ->searchable()
                                     ->native(false),
 
